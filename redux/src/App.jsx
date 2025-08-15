@@ -1,3 +1,4 @@
+//"Ek central box (store) jisme pura app ka data rahega, aur har jagah se access/change ho sake."
 import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
