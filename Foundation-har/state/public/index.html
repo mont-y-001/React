@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+</head>
+<body>
+
+  <h1>Todos</h1>
+
+  <div id="parent"></div>
+
+  <script>
+
+    let state = [];
+
+    function createChild(todo) {
+
+      const child =
+        document.createElement("div");
+
+      child.style.border =
+        "1px solid black";
+
+      child.style.padding =
+        "10px";
+
+      child.style.margin =
+        "10px";
+
+      const title =
+        document.createElement("h3");
+
+      title.innerText =
+        todo.title;
+
+      const description =
+        document.createElement("p");
+
+      description.innerText =
+        todo.description;
+
+      child.appendChild(title);
+      child.appendChild(description);
+
+      return child;
+    }
+
+    function render() {
+
+      const parent =
+        document.getElementById("parent");
+
+      parent.innerHTML = "";
+
+      for (let i = 0; i < state.length; i++) {
+
+        const child =
+          createChild(state[i]);
+
+        parent.appendChild(child);
+      }
+    }
+
+    async function getTodos() {
+
+      const response =
+        await fetch("http://localhost:3000/todos");
+
+      const data =
+        await response.json();
+
+      state = data.todos;
+
+      render();
+    }
+
+    getTodos();
+
+    setInterval(getTodos, 5000);
+
+  </script>
+
+</body>
+</html>
