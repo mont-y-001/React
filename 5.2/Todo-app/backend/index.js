@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const {createTodo, updateTodo} = require('./types');
 const{todo} = require('./db')
 
+app.use(cors());
 app.use(express.json());
 
 app.post('/todo',async (req,res)=>{

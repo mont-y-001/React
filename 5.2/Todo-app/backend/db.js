@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const { string } = require('zod');
 const dns = require('dns');
+const connectDB = require('./config');
+
 dns.setServers([
    "1.1.1.1",
    "8.8.8.8"
 ])
 
-mongoose.connect(
-  "mongodb+srv://my266620_db_user:mohit9339@todo-app.xwmycyv.mongodb.net/TodoApp?retryWrites=true&w=majority&appName=todo-app"
-);
+connectDB();
 
 const todoSchema = new mongoose.Schema({
     title:String,
