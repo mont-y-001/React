@@ -3,7 +3,10 @@ import { useState } from "react";
 export  function Assignment1(){
     const [input, setInput] = useState();
 
-    const expensiveValue = 0;
+    let expensiveValue = 1;
+    for(let i = 1;i<=input;i++){
+        expensiveValue *= i; 
+    }
     return(
         <div>
             <input type="number" value={input} 
