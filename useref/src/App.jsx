@@ -8,7 +8,7 @@ function App() {
    let btnRef = useRef();
 
 
-   function handleIncrement(){
+   function handleIncrement(){ 
     val.current = val.current+1;
     console.log("Value of val: ", val.current);
     setCount(count+1);
@@ -20,7 +20,7 @@ function App() {
      
    useEffect(()=>{
     console.log("main firse render hogya hu");
-   })
+   },[])
 
   return (
     <div className='container'>
