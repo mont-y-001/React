@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <script>
+  function AddTodo(){
+    const title = document.querySelector("#title").value;
+    const description = document.querySelector("#description").value;
+    const originalHtml = document.querySelector("#container").innerHTML;
+
+    document.querySelector("#container").innerHTML =  originalHtml + `
+    <h3>${title}</h3>
+    <p>${description}</p>`;
+  }
+        </script>
+
+
+        <input id="title" type="text" placeholder="title"><br>
+        <input id="description" type="text" placeholder="description"><br>
+        <button onclick="AddTodo()">Add Todo</button><br>
+        <div id="container"></div>
+    </body>
+</html>
